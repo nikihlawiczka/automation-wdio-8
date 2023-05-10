@@ -1,5 +1,5 @@
 
-//UKOL Z PRVNÍ LEKCE, SCREENSHOT
+/* //UKOL Z PRVNÍ LEKCE, SCREENSHOT
 describe('Homework', async () => {
 
     it('should open page and create screenshot', async () => {
@@ -14,7 +14,7 @@ describe('Homework', async () => {
 
     });
 
-});
+}); */
 
 
 /*UKOL Z DRUHÉ LEKCE, NAJÍT selektory
@@ -39,3 +39,44 @@ console.log(await password-confirm.getHTML());
 const btn-primary = await $('.btn-primary');
 console.log(await btn-primary.getHTML()); 
 */
+
+/* //ÚKOL ZE TŘETÍ LEKCE
+
+Prohldédni si strnánku pro registraci Otevřít stránku pro registraci https://team8-2022brno.herokuapp.com/registrace.
+
+Vycházej z úkolu z lekce 2 a napiš kód který na stránce pro registraci
+Vyplní jméno a příjmení
+Vyplní email
+Vyplní a potvrdí heslo
+Klikne na tlačítko pro odeslání registračního formuláře
+*/
+
+describe ('Registracion page', async () => {
+    it ('should register new user', async () => {
+        
+        await browser.reloadSession();
+        await browser.url('/registrace');
+         
+        const nameField = $('#name');
+        await nameField.setValue('Svetřík Teplý');
+
+        const emailField = $('#email');
+        await emailField.setValue('nosimsvetrik@seznam.cz');
+
+        const passwordField = $('#password');
+        await passwordField.setValue('užminenízima');
+
+        const passwordFieldConf = $('#password-confirm');
+        await passwordFieldConf.setValue('užminenízima');
+
+        const registrationButton = $('.btn-primary');
+        await registrationButton.click();
+
+    })
+});
+
+
+
+
+
+

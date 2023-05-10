@@ -68,10 +68,10 @@ console.log(await kombinaceInputAtribut.getHTML());
 
 /*------------------Řazení selektrorů---------------------------*/
 //vytvoř řetězení $ pro tag div > form > input[type$="word"]
-const retez = await $('div > form > input[type$="word"]');
+const retez = await $('div').$('form').$('input[type$="word"]');
 console.log(await retez.getHTML());
       
 /*------------------WDIO SELEKTORY---------------------------*/
 //najdi element podle textu "Zapomněli jste své heslo?"
-const otazka = await $('Zapomněli jste své heslo?');
+const otazka = await $('=Zapomněli jste své heslo?');
 console.log(await otazka.getHTML());
